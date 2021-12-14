@@ -9,6 +9,14 @@ public class NumberToWords {
     private HashMap<Integer, Integer> positionToPlace;
     private HashMap<Integer, String> placeToWords;
 
+    public NumberToWords() {
+        initSingleDigitNumberToWords();
+        initTeenDigitNumberToWords();
+        initMultiplesOfTenNumberToWords();
+        initPlaceToWords();
+        initPositionToPlace();
+    }
+
     private void initSingleDigitNumberToWords() {
         singleDigitNumberToWords = new HashMap<Integer,String>();
 
@@ -72,22 +80,13 @@ public class NumberToWords {
         if(number == null) return words.toString();
 
         if( number < 10) {
-            initSingleDigitNumberToWords();
             words.append(singleDigitNumberToWords.get(number));
         } else if(number < 20) {
-            initTeenDigitNumberToWords();
             words.append(teenDigitNumberToWords.get(number));
         } else {
             if(number % 10 == 0 && number < 100) {
-                initMultiplesOfTenNumberToWords();
                 words.append(multiplesOfTenNumberToWords.get(number));
             } else {
-                initMultiplesOfTenNumberToWords();
-                initSingleDigitNumberToWords();
-                initTeenDigitNumberToWords();
-                initPositionToPlace();
-                initPlaceToWords();
-
                 String stringNumber = Integer.toString(number);
 
                 for(int idx = 0, position = stringNumber.length(); idx < stringNumber.length(); idx++, position--) {
