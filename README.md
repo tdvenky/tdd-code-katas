@@ -8,7 +8,7 @@ Code kata exercises using Test Driven Development (TDD)
 1. start by writing a unit test first before your program and make it fail
 2. write minimum possible code required for your program to make the test pass
 3. continue to add more unit tests for differnt incremental inputs so that the tests fail before writing more minimum possible code in your program to make the tests pass
-4. whenever dulicate is found, refactor your program to remove duplicate code before writing more tests
+4. whenever dulicate code is found, refactor your program to remove duplicate code before writing more tests
 
 ### TDD Principles:
 1. your tests should drive your program's code
