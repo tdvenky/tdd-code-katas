@@ -6,6 +6,7 @@ public class NumberToWords {
     private HashMap<Integer, String> singleDigitNumberToWords;
     private HashMap<Integer, String> teenDigitNumberToWords;
     private HashMap<Integer, String> multiplesOfTenNumberToWords;
+    private HashMap<Integer, Integer> positionToPlace;
 
     private void initSingleDigitNumberToWords() {
         singleDigitNumberToWords = new HashMap<Integer,String>();
@@ -50,6 +51,13 @@ public class NumberToWords {
         multiplesOfTenNumberToWords.put(90, "ninety");
     }
 
+    private void initPositionToPlace() {
+        positionToPlace = new HashMap<Integer,Integer>();
+
+        positionToPlace.put(1, 1);  // Units place
+        positionToPlace.put(2, 10); // Tens place
+    }
+
     public String convertNumberToWords(Integer number) {
         StringBuilder words = new StringBuilder();
 
@@ -62,10 +70,33 @@ public class NumberToWords {
             initTeenDigitNumberToWords();
             words.append(teenDigitNumberToWords.get(number));
         } else {
-            initMultiplesOfTenNumberToWords();
-            words.append(multiplesOfTenNumberToWords.get(number));
+            if(number % 10 == 0) {
+                initMultiplesOfTenNumberToWords();
+                words.append(multiplesOfTenNumberToWords.get(number));
+            } else {
+                initMultiplesOfTenNumberToWords();
+                initSingleDigitNumberToWords();
+                initPositionToPlace();
+
+                String stringNumber = Integer.toString(number);
+
+                for(int idx = 0, position = stringNumber.length(); idx < stringNumber.length(); idx++, position--) {
+
+                    int digit = Integer.parseInt(Character.toString(stringNumber.charAt(idx)));
+                    digit = digit * positionToPlace.get(digit);
+
+                    switch (position) {
+                        case 2:
+                            words.append(multiplesOfTenNumberToWords.get(digit) + " " );
+                            break;
+                        case 1:
+                            words.append(singleDigitNumberToWords.get(digit));
+                            break;
+                    }
+                }
+            }
         }
 
-        return words.toString();
+        return words.toString().trim();
     }
 }

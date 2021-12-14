@@ -63,4 +63,9 @@ public class NumberToWordsTest {
         assertEquals("eighty", numberToWords.convertNumberToWords(80));
         assertEquals("ninety", numberToWords.convertNumberToWords(90));
     }
+
+    @Test
+    public void twoDigitNumber_ReturnsWords() {
+        assertEquals("twenty one", numberToWords.convertNumberToWords(21));
+    }
 }
