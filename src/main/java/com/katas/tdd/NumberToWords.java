@@ -80,6 +80,10 @@ public class NumberToWords {
         return number * positionToPlace.get(position);
     }
 
+    private String getWordsByNumberAndPosition(int number, int position) {
+        return singleDigitNumberToWords.get(number) + " " + placeToWords.get(position) + " ";
+    }
+
     public String convertNumberToWords(Integer number) {
         StringBuilder words = new StringBuilder();
 
@@ -111,12 +115,8 @@ public class NumberToWords {
 
                     switch (position) {
                         case 4: // Thousands place
-                            words.append(singleDigitNumberToWords.get(digit) + " ");
-                            words.append(placeToWords.get(position) + " " );
-                            break;
                         case 3: // Hundreds place
-                            words.append(singleDigitNumberToWords.get(digit) + " ");
-                            words.append(placeToWords.get(position) + " ");
+                            words.append(getWordsByNumberAndPosition(digit, position));
                             break;
                         case 2: // Tens place
                             words.append(multiplesOfTenNumberToWords.get(updated_digit) + " " );
