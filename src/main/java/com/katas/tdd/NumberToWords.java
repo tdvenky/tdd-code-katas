@@ -10,6 +10,14 @@ public class NumberToWords {
 
         singleDigitNumberToWords.put(0, "zero");
         singleDigitNumberToWords.put(1, "one");
+        singleDigitNumberToWords.put(2, "two");
+        singleDigitNumberToWords.put(3, "three");
+        singleDigitNumberToWords.put(4, "four");
+        singleDigitNumberToWords.put(5, "five");
+        singleDigitNumberToWords.put(6, "six");
+        singleDigitNumberToWords.put(7, "seven");
+        singleDigitNumberToWords.put(8, "eight");
+        singleDigitNumberToWords.put(9, "nine");
     }
 
 	public String convertNumberToWords(Integer number) {

@@ -28,5 +28,13 @@ public class NumberToWordsTest {
     public void singleDigitNumber_ReturnsWords() {
         assertEquals("zero", numberToWords.convertNumberToWords(0));
         assertEquals("one", numberToWords.convertNumberToWords(1));
+        assertEquals("two", numberToWords.convertNumberToWords(2));
+        assertEquals("three", numberToWords.convertNumberToWords(3));
+        assertEquals("four", numberToWords.convertNumberToWords(4));
+        assertEquals("five", numberToWords.convertNumberToWords(5));
+        assertEquals("six", numberToWords.convertNumberToWords(6));
+        assertEquals("seven", numberToWords.convertNumberToWords(7));
+        assertEquals("eight", numberToWords.convertNumberToWords(8));
+        assertEquals("nine", numberToWords.convertNumberToWords(9));
     }
 }
