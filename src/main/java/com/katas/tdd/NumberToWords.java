@@ -64,6 +64,7 @@ public class NumberToWords {
         placeToWords = new HashMap<Integer,String>();
 
         placeToWords.put(3, "hundred");
+        placeToWords.put(4, "thousand");
     }
 
     private void initPositionToPlace() {
@@ -72,6 +73,7 @@ public class NumberToWords {
         positionToPlace.put(1, 1);  // Units place
         positionToPlace.put(2, 10); // Tens place
         positionToPlace.put(3, 100); // Hundreds place
+        positionToPlace.put(4, 1000); // Thoudsands place
     }
 
     private int getUpdatedNumberByPosition(int number, int position) {
@@ -108,6 +110,10 @@ public class NumberToWords {
                     if(digit == 0) continue;
 
                     switch (position) {
+                        case 4: // Thousands place
+                            words.append(singleDigitNumberToWords.get(digit) + " ");
+                            words.append(placeToWords.get(position) + " " );
+                            break;
                         case 3: // Hundreds place
                             words.append(singleDigitNumberToWords.get(digit) + " ");
                             words.append(placeToWords.get(position) + " ");

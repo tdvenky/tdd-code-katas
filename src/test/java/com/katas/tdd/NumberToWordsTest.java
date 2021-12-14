@@ -96,4 +96,9 @@ public class NumberToWordsTest {
         assertEquals("three hundred thirteen", numberToWords.convertNumberToWords(313));
         assertEquals("nine hundred nineteen", numberToWords.convertNumberToWords(919));
     }
+
+    @Test
+    public void fourDigitNumber_ReturnsWords() {
+        assertEquals("four thousand", numberToWords.convertNumberToWords(4000));
+    }
 }
