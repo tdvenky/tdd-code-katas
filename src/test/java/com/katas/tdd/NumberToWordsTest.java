@@ -100,5 +100,10 @@ public class NumberToWordsTest {
     @Test
     public void fourDigitNumber_ReturnsWords() {
         assertEquals("four thousand", numberToWords.convertNumberToWords(4000));
+        assertEquals("five thousand one", numberToWords.convertNumberToWords(5001));
+        assertEquals("two thousand twelve", numberToWords.convertNumberToWords(2012));
+        assertEquals("two thousand twenty one", numberToWords.convertNumberToWords(2021));
+        assertEquals("three thousand four hundred", numberToWords.convertNumberToWords(3400));
+        assertEquals("nine thousand nine hundred ninety nine", numberToWords.convertNumberToWords(9999));
     }
 }
