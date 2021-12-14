@@ -75,4 +75,9 @@ public class NumberToWordsTest {
         assertEquals("eighty seven", numberToWords.convertNumberToWords(87));
         assertEquals("ninety eight", numberToWords.convertNumberToWords(98));
     }
+
+    @Test
+    public void threeDigitNumber_eturnsWords() {
+        assertEquals("one hundred", numberToWords.convertNumberToWords(100));
+    }
 }
