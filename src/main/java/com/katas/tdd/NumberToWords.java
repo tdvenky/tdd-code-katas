@@ -83,13 +83,13 @@ public class NumberToWords {
                 for(int idx = 0, position = stringNumber.length(); idx < stringNumber.length(); idx++, position--) {
 
                     int digit = Integer.parseInt(Character.toString(stringNumber.charAt(idx)));
-                    digit = digit * positionToPlace.get(digit);
+                    digit = digit * positionToPlace.get(position);
 
                     switch (position) {
-                        case 2:
+                        case 2: // Tens place
                             words.append(multiplesOfTenNumberToWords.get(digit) + " " );
                             break;
-                        case 1:
+                        case 1: // Units place
                             words.append(singleDigitNumberToWords.get(digit));
                             break;
                     }

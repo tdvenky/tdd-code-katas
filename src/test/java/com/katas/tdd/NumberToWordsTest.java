@@ -67,5 +67,12 @@ public class NumberToWordsTest {
     @Test
     public void twoDigitNumber_ReturnsWords() {
         assertEquals("twenty one", numberToWords.convertNumberToWords(21));
+        assertEquals("thirty two", numberToWords.convertNumberToWords(32));
+        assertEquals("fourty three", numberToWords.convertNumberToWords(43));
+        assertEquals("fifty four", numberToWords.convertNumberToWords(54));
+        assertEquals("sixty five", numberToWords.convertNumberToWords(65));
+        assertEquals("seventy six", numberToWords.convertNumberToWords(76));
+        assertEquals("eighty seven", numberToWords.convertNumberToWords(87));
+        assertEquals("ninety eight", numberToWords.convertNumberToWords(98));
     }
 }
