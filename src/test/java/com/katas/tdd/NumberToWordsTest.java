@@ -55,5 +55,12 @@ public class NumberToWordsTest {
     @Test
     public void multiplesOfTenNumber_ReturnsWords() {
         assertEquals("twenty", numberToWords.convertNumberToWords(20));
+        assertEquals("thirty", numberToWords.convertNumberToWords(30));
+        assertEquals("fourty", numberToWords.convertNumberToWords(40));
+        assertEquals("fifty", numberToWords.convertNumberToWords(50));
+        assertEquals("sixty", numberToWords.convertNumberToWords(60));
+        assertEquals("seventy", numberToWords.convertNumberToWords(70));
+        assertEquals("eighty", numberToWords.convertNumberToWords(80));
+        assertEquals("ninety", numberToWords.convertNumberToWords(90));
     }
 }

@@ -41,6 +41,13 @@ public class NumberToWords {
         multiplesOfTenNumberToWords = new HashMap<Integer,String>();
 
         multiplesOfTenNumberToWords.put(20, "twenty");
+        multiplesOfTenNumberToWords.put(30, "thirty");
+        multiplesOfTenNumberToWords.put(40, "fourty");
+        multiplesOfTenNumberToWords.put(50, "fifty");
+        multiplesOfTenNumberToWords.put(60, "sixty");
+        multiplesOfTenNumberToWords.put(70, "seventy");
+        multiplesOfTenNumberToWords.put(80, "eighty");
+        multiplesOfTenNumberToWords.put(90, "ninety");
     }
 
     public String convertNumberToWords(Integer number) {
