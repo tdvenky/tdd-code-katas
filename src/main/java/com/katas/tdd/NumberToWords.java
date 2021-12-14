@@ -74,6 +74,10 @@ public class NumberToWords {
         positionToPlace.put(3, 100); // Hundreds place
     }
 
+    private int getUpdatedNumberByPosition(int number, int position) {
+        return number * positionToPlace.get(position);
+    }
+
     public String convertNumberToWords(Integer number) {
         StringBuilder words = new StringBuilder();
 
@@ -92,17 +96,16 @@ public class NumberToWords {
                 for(int idx = 0, position = stringNumber.length(); idx < stringNumber.length(); idx++, position--) {
 
                     int digit = Integer.parseInt(Character.toString(stringNumber.charAt(idx)));
+                    int updated_digit = getUpdatedNumberByPosition(digit, position);
 
                     if(position == 2 && digit == 1) {
                         // teen case
                         int last_digit = Integer.parseInt(Character.toString(stringNumber.charAt(idx + 1)));
-                        words.append(teenDigitNumberToWords.get( (digit*10) + last_digit) );
+                        words.append(teenDigitNumberToWords.get( updated_digit + last_digit) );
                         break;
                     }
 
                     if(digit == 0) continue;
-
-                    int updated_digit = digit * positionToPlace.get(position);
 
                     switch (position) {
                         case 3: // Hundreds place
