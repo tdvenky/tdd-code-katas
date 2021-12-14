@@ -13,3 +13,6 @@ Code kata exercises using Test Driven Development (TDD)
 ### TDD Principles:
 1. your tests should drive your program's code
 2. the tests should get more and more specific whereas your program should evolve to become more and more generic
+
+## TTD Exercises
+1. Number to Words
