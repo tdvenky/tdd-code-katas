@@ -41,5 +41,14 @@ public class NumberToWordsTest {
     @Test
     public void teenDigitNumber_ReturnsWords() {
         assertEquals("ten", numberToWords.convertNumberToWords(10));
+        assertEquals("eleven", numberToWords.convertNumberToWords(11));
+        assertEquals("twelve", numberToWords.convertNumberToWords(12));
+        assertEquals("thirteen", numberToWords.convertNumberToWords(13));
+        assertEquals("fourteen", numberToWords.convertNumberToWords(14));
+        assertEquals("fifteen", numberToWords.convertNumberToWords(15));
+        assertEquals("sixteen", numberToWords.convertNumberToWords(16));
+        assertEquals("seventeen", numberToWords.convertNumberToWords(17));
+        assertEquals("eighteen", numberToWords.convertNumberToWords(18));
+        assertEquals("nineteen", numberToWords.convertNumberToWords(19));
     }
 }

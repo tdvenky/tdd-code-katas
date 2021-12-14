@@ -25,6 +25,15 @@ public class NumberToWords {
         teenDigitNumberToWords = new HashMap<Integer,String>();
 
         teenDigitNumberToWords.put(10, "ten");
+        teenDigitNumberToWords.put(11, "eleven");
+        teenDigitNumberToWords.put(12, "twelve");
+        teenDigitNumberToWords.put(13, "thirteen");
+        teenDigitNumberToWords.put(14, "fourteen");
+        teenDigitNumberToWords.put(15, "fifteen");
+        teenDigitNumberToWords.put(16, "sixteen");
+        teenDigitNumberToWords.put(17, "seventeen");
+        teenDigitNumberToWords.put(18, "eighteen");
+        teenDigitNumberToWords.put(19, "nineteen");
     }
 
     public String convertNumberToWords(Integer number) {
