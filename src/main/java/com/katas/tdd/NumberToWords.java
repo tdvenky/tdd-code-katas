@@ -9,6 +9,8 @@ public class NumberToWords {
 
         if(number == 0) {
             words.append("zero");
+        } else if(number == 1) {
+            words.append("one");
         }
 		return words.toString();
 	}

@@ -27,5 +27,6 @@ public class NumberToWordsTest {
     @Test
     public void singleDigitNumber_ReturnsWords() {
         assertEquals("zero", numberToWords.convertNumberToWords(0));
+        assertEquals("one", numberToWords.convertNumberToWords(1));
     }
 }
