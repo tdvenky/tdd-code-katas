@@ -84,6 +84,7 @@ public class NumberToWords {
             } else {
                 initMultiplesOfTenNumberToWords();
                 initSingleDigitNumberToWords();
+                initTeenDigitNumberToWords();
                 initPositionToPlace();
                 initPlaceToWords();
 
@@ -93,15 +94,21 @@ public class NumberToWords {
 
                     int digit = Integer.parseInt(Character.toString(stringNumber.charAt(idx)));
 
+                    if(position == 2 && digit == 1) {
+                        // teen case
+                        int last_digit = Integer.parseInt(Character.toString(stringNumber.charAt(idx + 1)));
+                        words.append(teenDigitNumberToWords.get( (digit*10) + last_digit) );
+                        break;
+                    }
+
                     if(digit == 0) continue;
 
                     int updated_digit = digit * positionToPlace.get(position);
 
                     switch (position) {
                         case 3: // Hundreds place
-                            words.append(singleDigitNumberToWords.get(digit));
-                            words.append(" ");
-                            words.append(placeToWords.get(position));
+                            words.append(singleDigitNumberToWords.get(digit) + " ");
+                            words.append(placeToWords.get(position) + " ");
                             break;
                         case 2: // Tens place
                             words.append(multiplesOfTenNumberToWords.get(updated_digit) + " " );
