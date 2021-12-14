@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 public class NumberToWords {
     private HashMap<Integer, String> singleDigitNumberToWords;
+    private HashMap<Integer, String> teenDigitNumberToWords;
 
     private void initSingleDigitNumberToWords() {
         singleDigitNumberToWords = new HashMap<Integer,String>();
@@ -20,15 +21,25 @@ public class NumberToWords {
         singleDigitNumberToWords.put(9, "nine");
     }
 
-	public String convertNumberToWords(Integer number) {
+    private void initTeenDigitNumberToWords() {
+        teenDigitNumberToWords = new HashMap<Integer,String>();
+
+        teenDigitNumberToWords.put(10, "ten");
+    }
+
+    public String convertNumberToWords(Integer number) {
         StringBuilder words = new StringBuilder();
 
         if(number == null) return words.toString();
 
-        initSingleDigitNumberToWords();
+        if( number < 10) {
+            initSingleDigitNumberToWords();
+            words.append(singleDigitNumberToWords.get(number));
+        } else {
+            initTeenDigitNumberToWords();
+            words.append(teenDigitNumberToWords.get(number));
+        }
 
-        words.append(singleDigitNumberToWords.get(number));
-
-		return words.toString();
-	}
+        return words.toString();
+    }
 }

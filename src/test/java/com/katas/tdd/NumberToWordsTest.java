@@ -37,4 +37,9 @@ public class NumberToWordsTest {
         assertEquals("eight", numberToWords.convertNumberToWords(8));
         assertEquals("nine", numberToWords.convertNumberToWords(9));
     }
+
+    @Test
+    public void teenDigitNumber_ReturnsWords() {
+        assertEquals("ten", numberToWords.convertNumberToWords(10));
+    }
 }
