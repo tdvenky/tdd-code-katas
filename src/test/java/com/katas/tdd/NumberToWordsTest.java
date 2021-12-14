@@ -85,11 +85,15 @@ public class NumberToWordsTest {
         assertEquals("nine hundred", numberToWords.convertNumberToWords(900));
 
         assertEquals("one hundred one", numberToWords.convertNumberToWords(101));
+        assertEquals("six hundred seven", numberToWords.convertNumberToWords(607));
 
         assertEquals("four hundred sixty", numberToWords.convertNumberToWords(460));
+        assertEquals("two hundred thirty", numberToWords.convertNumberToWords(230));
 
         assertEquals("eight hundred fourty three", numberToWords.convertNumberToWords(843));
+        assertEquals("five hundred twenty one", numberToWords.convertNumberToWords(521));
 
         assertEquals("three hundred thirteen", numberToWords.convertNumberToWords(313));
+        assertEquals("nine hundred nineteen", numberToWords.convertNumberToWords(919));
     }
 }
