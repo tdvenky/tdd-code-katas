@@ -23,4 +23,9 @@ public class NumberToWordsTest {
     public void emptyInputNumber_ReturnsEmptyString() {
         assertEquals("", numberToWords.convertNumberToWords(null));
     }
+
+    @Test
+    public void singleDigitNumber_ReturnsWords() {
+        assertEquals("zero", numberToWords.convertNumberToWords(0));
+    }
 }
