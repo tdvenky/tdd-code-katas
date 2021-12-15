@@ -6,7 +6,6 @@ public class NumberToWords {
     private HashMap<Integer, String> singleDigitNumberToWords;
     private HashMap<Integer, String> teenDigitNumberToWords;
     private HashMap<Integer, String> multiplesOfTenNumberToWords;
-    private HashMap<Integer, Integer> positionToPlace;
     private HashMap<Integer, String> placeToWords;
 
     public NumberToWords() {
@@ -14,7 +13,6 @@ public class NumberToWords {
         initTeenDigitNumberToWords();
         initMultiplesOfTenNumberToWords();
         initPlaceToWords();
-        initPositionToPlace();
     }
 
     private void initSingleDigitNumberToWords() {
@@ -67,21 +65,12 @@ public class NumberToWords {
         placeToWords.put(4, "thousand");
     }
 
-    private void initPositionToPlace() {
-        positionToPlace = new HashMap<Integer,Integer>();
-
-        positionToPlace.put(1, 1);  // Units place
-        positionToPlace.put(2, 10); // Tens place
-        positionToPlace.put(3, 100); // Hundreds place
-        positionToPlace.put(4, 1000); // Thoudsands place
-    }
-
-    private int getUpdatedNumberByPosition(int number, int position) {
-        return number * positionToPlace.get(position);
-    }
-
     private String getWordsByNumberAndPosition(int number, int position) {
         return singleDigitNumberToWords.get(number) + " " + placeToWords.get(position) + " ";
+    }
+
+    private int charToInt(char c) {
+        return Integer.parseInt(Character.toString(c) );
     }
 
     public String convertNumberToWords(Integer number) {
@@ -89,43 +78,30 @@ public class NumberToWords {
 
         if(number == null) return words.toString();
 
-        if( number < 10) {
-            words.append(singleDigitNumberToWords.get(number));
-        } else if(number < 20) {
-            words.append(teenDigitNumberToWords.get(number));
-        } else {
-            if(number % 10 == 0 && number < 100) {
-                words.append(multiplesOfTenNumberToWords.get(number));
-            } else {
-                String stringNumber = Integer.toString(number);
+        if(number == 0) return words.append(singleDigitNumberToWords.get(0)).toString();
 
-                for(int idx = 0, position = stringNumber.length(); idx < stringNumber.length(); idx++, position--) {
+        String stringNumber = Integer.toString(number);
 
-                    int digit = Integer.parseInt(Character.toString(stringNumber.charAt(idx)));
-                    int updated_digit = getUpdatedNumberByPosition(digit, position);
+        for(int idx = 0, position = stringNumber.length(); idx < stringNumber.length(); idx++, position--) {
 
-                    if(position == 2 && digit == 1) {
-                        // teen case
-                        int last_digit = Integer.parseInt(Character.toString(stringNumber.charAt(idx + 1)));
-                        words.append(teenDigitNumberToWords.get( updated_digit + last_digit) );
-                        break;
-                    }
+            int digit = charToInt(stringNumber.charAt(idx));
 
-                    if(digit == 0) continue;
+            if(digit == 0) continue;
 
-                    switch (position) {
-                        case 4: // Thousands place
-                        case 3: // Hundreds place
-                            words.append(getWordsByNumberAndPosition(digit, position));
-                            break;
-                        case 2: // Tens place
-                            words.append(multiplesOfTenNumberToWords.get(updated_digit) + " " );
-                            break;
-                        case 1: // Units place
-                            words.append(singleDigitNumberToWords.get(updated_digit));
-                            break;
-                    }
-                }
+            switch (position) {
+                case 4: // Thousands place
+                case 3: // Hundreds place
+                    words.append(getWordsByNumberAndPosition(digit, position));
+                    break;
+                case 2: // Tens place
+                    if(digit == 1)
+                        words.append(teenDigitNumberToWords.get((digit*10) + charToInt(stringNumber.charAt(++idx))));
+                    else
+                        words.append(multiplesOfTenNumberToWords.get(digit*10) + " ");
+                    break;
+                case 1: // Units place
+                    words.append(singleDigitNumberToWords.get(digit));
+                    break;
             }
         }
 
