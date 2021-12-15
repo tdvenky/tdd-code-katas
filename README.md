@@ -17,5 +17,5 @@ Code kata exercises using Test Driven Development (TDD)
 2. the tests should get more and more specific whereas your program should evolve to become more and more generic
 
 ## TTD Exercises
-1. Number to Words
+1. [Number to Words](https://github.com/tdvenky/tdd-code-katas/blob/main/src/main/java/com/katas/tdd/NumberToWords.java)
 
