@@ -43,3 +43,20 @@ No one writes clean code at first. After the code starts working, clean it befor
    - a function that returns something should not have a side effect or in other words should not change the state of the system
 9. a function with try/catch block should not contain prefix code and suffix code around the  try/catch block and the only one method should be called from within the try/catch block
 10. don't ever add a nested try/catch block
+
+### Comments
+1. nothing can be quite so helpful as a good comment, so not all comments are bad but don't be in the mindset of writing comments
+2. a comment added due to the failure to express yourself in code is a bad comment and bad code
+3. configure your IDE to paint the comments in bright RED so that it catches the developer's eyes 
+4. comments degrade overtime and needs to be removed as and when necessary before it turns into a lie
+5. examples of good comments: name of the design patern used in the code, what a reqular expression matches etc
+6. TODO comments must be done or deleted before commiting the code
+7. add Java docs only for external API and try to keep it minimal
+8. delete commented out code if you see them
+9. never add a comment that talks about code from somewhere else and not related to the one right below. If you do that, then that comment will turn into a lie
+
+### Naming
+1. reveal your intent while naming. A good system of names tells you not just about the function you are writing but also the entire context
+2. the length of the variable names should be propotional to it's scope
+3. the length of the function names should be inversely propotional to it's scope
+4. the lenght of the class names should be inversely propotional to it's scope. Global classes can have one word names, derived classes can have multiple word names 
